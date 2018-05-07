@@ -40,17 +40,16 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("Operation",Operationtype);
         if (Sum.isChecked()){
             Operationtype = "Suma";
-            intent.putExtra("Result", Integer.parseInt(N1.getText().toString()) +  Integer.parseInt(N2.getText().toString());
+            intent.putExtra("Result", Integer.parseInt(N1.getText().toString()) +  Integer.parseInt(N2.getText().toString()));
 
         }
-
         else if (Rest.isChecked()){
             Operationtype = "Resta";
-            intent.putExtra("Result", Integer.parseInt(N1.getText().toString()) +  Integer.parseInt(N2.getText().toString());
+            intent.putExtra("Result", Integer.parseInt(N1.getText().toString()) +  Integer.parseInt(N2.getText().toString()));
         }
 
 
-        System.out.println("Resultado"+ Integer.parseInt(N1.getText().toString()) +  Integer.parseInt(N2.getText().toString());
+        System.out.println("Resultado"+ Integer.parseInt(N1.getText().toString()) +  Integer.parseInt(N2.getText().toString()));
         startActivityForResult(intent,0);
     }
 
