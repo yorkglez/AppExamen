@@ -36,20 +36,22 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     public void Operations(){
-        Intent intent = new Intent(this, Resutl.class);
-        intent.putExtra("Operation",Operationtype);
         if (Sum.isChecked()){
             Operationtype = "Suma";
-            intent.putExtra("Result", Integer.parseInt(N1.getText().toString()) +  Integer.parseInt(N2.getText().toString()));
+            Result =  Integer.parseInt(N1.getText().toString()) +  Integer.parseInt(N2.getText().toString());
+            System.out.println("Result"+Result);
+           // Toast.makeText(MainActivity.this,Result,Toast.LENGTH_LONG).show();
 
         }
+
         else if (Rest.isChecked()){
             Operationtype = "Resta";
-            intent.putExtra("Result", Integer.parseInt(N1.getText().toString()) +  Integer.parseInt(N2.getText().toString()));
+            Result =  Integer.parseInt(N1.getText().toString()) -  Integer.parseInt(N2.getText().toString());
         }
-
-
-        System.out.println("Resultado"+ Integer.parseInt(N1.getText().toString()) +  Integer.parseInt(N2.getText().toString()));
+        Intent intent = new Intent(this, Resutl.class);
+        intent.putExtra("Operation",Operationtype);
+        intent.putExtra("Result",Result);
+        System.out.println("Resultado"+Result);
         startActivityForResult(intent,0);
     }
 
