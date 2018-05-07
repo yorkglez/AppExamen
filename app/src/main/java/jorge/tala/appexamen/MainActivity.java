@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     RadioButton Rest;
     String Operationtype;
     Button btnoperation;
-    int Result;
+    int Result = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,18 +36,21 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     public void Operations(){
-        if (Sum.isChecked()){
-            Operationtype = "Suma";
-            Result =  Integer.parseInt(N1.getText().toString()) +  Integer.parseInt(N2.getText().toString());
-        }
-
-        if (Rest.isChecked()){
-            Operationtype = "Resta";
-            Result =  Integer.parseInt(N1.getText().toString()) -  Integer.parseInt(N2.getText().toString());
-        }
         Intent intent = new Intent(this, Resutl.class);
         intent.putExtra("Operation",Operationtype);
-        intent.putExtra("Result",Result);
+        if (Sum.isChecked()){
+            Operationtype = "Suma";
+            intent.putExtra("Result", Integer.parseInt(N1.getText().toString()) +  Integer.parseInt(N2.getText().toString());
+
+        }
+
+        else if (Rest.isChecked()){
+            Operationtype = "Resta";
+            intent.putExtra("Result", Integer.parseInt(N1.getText().toString()) +  Integer.parseInt(N2.getText().toString());
+        }
+
+
+        System.out.println("Resultado"+ Integer.parseInt(N1.getText().toString()) +  Integer.parseInt(N2.getText().toString());
         startActivityForResult(intent,0);
     }
 
